@@ -21,7 +21,7 @@ function App() {
   console.log(stateData)
 
   return (
-    <div style={{fontFamily: "monospace", width:"90vw", textAlign:"center", overflow: "hidden", margin: "40px", padding: "40px"}}>
+    <div style={{fontFamily: "monospace", textAlign:"center", overflow: "hidden", margin: "40px", padding: "40px"}}>
       <h1> COVID_19 Test Tracker</h1>
       <p style={{textAlign: "right"}}>Inspired by Justin Juno</p>
 
