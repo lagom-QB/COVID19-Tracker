@@ -8,3 +8,6 @@ _Projects was inspired by the work of Justin Juno_.
 
 ## Insights
 From the data, it is worth mentioning that some records were incomplete, Looking at the values of the total tests given and the results of positives and negatives.
+
+## Results
+<img width="772" alt="image" src="https://user-images.githubusercontent.com/28558929/114310845-981e1600-9aec-11eb-8d28-11149f19f4db.png">
