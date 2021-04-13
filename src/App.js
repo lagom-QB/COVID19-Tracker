@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import * as stateAbbr from "datasets-us-states-abbr";
 import Chart from './Chart.js'
+import comp_Chart from './Chart_Complete.js';
 
 function App() {
 
@@ -18,12 +19,20 @@ function App() {
     getData();
   }, [activeQuery]);
 
-  console.log(stateData)
+  const [activeQuery_1, setActiveQuery_1] = useState('NY')
+  const [stateData_1, setStateData_1] = useState({})
+  useEffect(() => {
+    async function getData(){
+      const res = await fetch(`https://covidtracking.com/api/states.json`);
+      const data = await res.json();
+      setStateData_1(data)
+    }
+    getData();
+  }, [activeQuery_1]);
 
   return (
-    <div style={{fontFamily: "monospace", textAlign:"center", overflow: "hidden", margin: "40px", padding: "40px"}}>
+    <div style={{fontFamily: "monospace", textAlign:"center", overflow: "hidden", padding: '10px'}}>
       <h1> COVID_19 Test Tracker</h1>
-      <p style={{textAlign: "right"}}>Inspired by Justin Juno</p>
 
       <form>
         <label>
@@ -39,8 +48,15 @@ function App() {
           </select>
         </label>
       </form>
+      
+      <div>
+        <Chart data={stateData} style={{ textAlign:"center", overflow: "hidden"}}/>
+      </div>
+      
+      <hr/>
+      <comp_Chart data = {stateData_1} />
 
-      <Chart data={stateData} />
+      <p style={{textAlign: "right"}}>Inspired by Justin Juno</p>
     </div>
   );
 }
